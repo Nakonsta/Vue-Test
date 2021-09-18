@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <Table />
+    <Modal />
+    <button class="btn">Добавить</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Table from './components/Table.vue'
+import Modal from './components/Modal.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Table,
+    Modal
   }
 }
 </script>
@@ -21,7 +24,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
