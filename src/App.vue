@@ -3,7 +3,8 @@
     <div class="wrapper">
       <div class="container">
         <div class="col-12">
-          <Table 
+          <Table
+            v-if="users.length"
             :users="users"
           />
           <Modal 
@@ -88,5 +89,8 @@ export default {
   clip: rect(0,0,0,0);
   white-space: nowrap;
   border: 0;
+}
+.text-small {
+  font-size: 0.8rem;
 }
 </style>
