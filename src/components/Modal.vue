@@ -6,6 +6,8 @@
       title="Добавление пользователя"
       hide-header-close
       hide-footer
+      no-close-on-esc
+      no-close-on-backdrop
       size="lg"
     >
       <form>
@@ -53,7 +55,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-2">
+        <div v-if="users.length" class="row mt-2">
           <div class="col-3">
             Начальник
           </div>
@@ -64,7 +66,13 @@
               class="mb-3 form-select"
               value-field="id"
               text-field="name"
-            ></b-form-select>
+            >
+              <template #first>
+                <b-form-select-option :value="null">
+                  -- Пожалуйста, выберите руководителя --
+                </b-form-select-option>
+              </template>
+            </b-form-select>
           </div>
         </div>
         <div class="row mt-3">
@@ -127,6 +135,9 @@ export default {
     closeModal() {
       this.userName = null;
       this.userPhone = null;
+      this.userParent = null;
+      this.isNameValid = false;
+      this.isPhoneValid = false;
       this.$refs['adding-modal'].hide();
     },
     validatePhoneNumber() {
