@@ -53,6 +53,20 @@
             </div>
           </div>
         </div>
+        <div class="row mt-2">
+          <div class="col-3">
+            Начальник
+          </div>
+          <div class="col-9">
+            <b-form-select
+              v-model="userParent"
+              :options="users"
+              class="mb-3 form-select"
+              value-field="id"
+              text-field="name"
+            ></b-form-select>
+          </div>
+        </div>
         <div class="row mt-3">
             <div class="col d-flex justify-content-end">
                 <b-button
@@ -72,18 +86,26 @@
 </template>
 
 <script>
-import { BButton, BModal } from 'bootstrap-vue'
+import { BButton, BModal, BFormSelect } from 'bootstrap-vue'
 
 export default {
   name: 'Modal',
   components: {
     BButton,
-    BModal
+    BModal,
+    BFormSelect
   },
-  data: function() {
+  props: {
+    users: {
+      type: Array,
+      required: true
+    }
+  },
+  data() {
     return {
       userName: null,
       userPhone: null,
+      userParent: null,
       isNameValid: false,
       isPhoneValid: false,
     }

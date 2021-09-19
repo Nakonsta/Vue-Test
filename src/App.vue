@@ -9,6 +9,7 @@
           />
           <Modal 
             @saveUser="pushUser"
+            :users="users"
           />
           <b-button v-b-modal.adding-modal variant="primary">Добавить</b-button>
         </div>
@@ -93,4 +94,22 @@ export default {
 .text-small {
   font-size: 0.8rem;
 }
+.custom-control-label:before, .custom-file-label, .custom-select {
+  transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+/* .custom-select {
+  display: inline-block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem 1.75rem .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  vertical-align: middle;
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  appearance: none;
+} */
 </style>
